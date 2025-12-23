@@ -3,245 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio | Software Developer</title>
+  <title>Tiago Monteiro | Software Developer</title>
+
   <style>
     :root {
       --bg: #020617;
+      --bg-soft: #020617;
       --card: #020617;
       --text: #e5e7eb;
       --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-2: #22c55e;
+      --primary: #38bdf8;
+      --secondary: #22c55e;
+      --gradient: linear-gradient(135deg, #38bdf8, #22c55e);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #020617, #020617 60%);
+      background: radial-gradient(circle at top, #020617, #020617 70%);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* HERO */
     header {
-      padding: 5rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 2rem;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.75rem;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.15), transparent 60%),
+                  radial-gradient(circle at 70% 70%, rgba(34,197,94,0.15), transparent 60%);
+      z-index: -1;
     }
 
-    header span {
-      color: var(--accent);
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      font-weight: 800;
     }
 
-    header p {
+    .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 2rem;
       color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto 1.5rem;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
     }
 
-    .links {
+    .cta {
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .links a {
+    .btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 700;
       text-decoration: none;
       border: 1px solid #1e293b;
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
       color: var(--text);
-      font-weight: 600;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
-    .links a:hover {
-      background: var(--accent);
+    .btn.primary {
+      background: var(--gradient);
       color: #020617;
-      border-color: var(--accent);
+      border: none;
     }
 
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    /* MAIN */
     main {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 4rem 1.5rem;
       display: grid;
-      gap: 3.5rem;
+      gap: 4rem;
     }
 
     section h2 {
-      font-size: 1.7rem;
-      margin-bottom: 1.2rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.75rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
     }
 
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--gradient);
+      display: block;
+      margin-top: 0.5rem;
+      border-radius: 999px;
+    }
+
+    /* ABOUT */
     .about p {
       max-width: 900px;
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1.05rem;
     }
 
+    /* PROJECTS */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .card {
       background: linear-gradient(180deg, #020617, #020617);
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
+      border-radius: 20px;
+      padding: 2rem;
       border: 1px solid #020617;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
     }
 
     .card h3 {
-      font-size: 1.15rem;
-      color: var(--accent);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.95rem;
-      flex-grow: 1;
+      margin-bottom: 1.2rem;
     }
 
     .card a {
-      text-decoration: none;
-      color: var(--accent-2);
       font-weight: 700;
-      align-self: flex-start;
+      text-decoration: none;
+      color: var(--secondary);
     }
 
+    /* SKILLS */
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .skill {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
       background: #020617;
       border: 1px solid #1e293b;
-      border-radius: 999px;
-      padding: 0.45rem 0.95rem;
-      font-size: 0.85rem;
       color: var(--muted);
+      transition: all 0.2s ease;
     }
 
+    .skill:hover {
+      background: var(--primary);
+      color: #020617;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 2.5rem 1rem 3rem;
+      padding: 3rem 1rem;
       color: var(--muted);
-      font-size: 0.85rem;
     }
 
     footer a {
-      color: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
+    }
+
+    /* FADE IN */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Olá, eu sou <span>Software Developer</span></h1>
-    <p>
-      Desenvolvedor focado em sistemas, baixo nível e resolução de problemas complexos.
-      Trabalho principalmente com C e C++, mas com mentalidade transversal a qualquer tecnologia.
-    </p>
-    <div class="links">
-      <a href="https://github.com/">GitHub</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Contacto</a>
+    <div class="hero">
+      <h1>Tiago <span>Monteiro</span></h1>
+      <p>
+        Software Developer focado em sistemas, baixo nível e resolução de problemas complexos.
+        Experiência sólida em C e C++, com forte base em ambientes Unix e projetos intensivos da 42.
+      </p>
+      <div class="cta">
+        <a href="https://github.com/TiagoDev88" class="btn primary">GitHub</a>
+        <a href="https://www.linkedin.com/in/tiagodev88/" class="btn">Linkdin</a>
+        <a href="#projects" class="btn">Projetos</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="about">
+    <section class="about reveal">
       <h2>Sobre mim</h2>
       <p>
-        Sou estudante da 42 School, onde desenvolvo projetos intensivos que exigem autonomia,
-        rigor técnico e atenção extrema ao detalhe. Tenho experiência na criação de software
-        de baixo nível, incluindo shells, parsers, sistemas concorrentes e estruturas de dados.
+        Sou estudante da 42 School e desenvolvedor apaixonado por compreender como o software
+        funciona por dentro. Trabalho maioritariamente com C e C++, criando aplicações onde
+        gestão de memória, concorrência, parsing e comportamento previsível são cruciais.
         <br><br>
-        Gosto de compreender como as coisas funcionam internamente  desde o parsing de uma linha
-        de comandos até à sincronização de threads  e procuro escrever código limpo, previsível
-        e alinhado com o comportamento real dos sistemas Unix.
-        <br><br>
-        Todos os meus projetos estão disponíveis no GitHub, onde documento o processo, decisões
-        técnicas e desafios enfrentados.
+        Tenho experiência na construção de shells, parsers, sistemas concorrentes e ferramentas
+        de baixo nível, sempre com foco em código limpo, robusto e alinhado com o funcionamento
+        real dos sistemas Unix.
       </p>
     </section>
 
-    <section>
+    <section id="projects" class="reveal">
       <h2>Projetos em destaque</h2>
       <div class="projects">
         <div class="card">
           <h3>Minishell</h3>
           <p>
             Shell inspirado no Bash com parsing completo, pipes, redirecionamentos, heredocs,
-            variáveis de ambiente, sinais e builtins implementados do zero.
+            sinais, variáveis de ambiente e builtins implementados do zero.
           </p>
-          <a href="https://github.com/">Ver no GitHub →</a>
+          <a href="https://github.com/TiagoDev88/minishell">Ver no GitHub →</a>
         </div>
 
         <div class="card">
           <h3>Philosophers</h3>
           <p>
-            Implementação do problema dos filósofos utilizando threads e mutexes,
-            com sistema de monitorização para evitar starvation e race conditions.
-          </p>
-          <a href="https://github.com/">Ver no GitHub →</a>
-        </div>
-
-        <div class="card">
-          <h3>Argo — JSON Parser</h3>
-          <p>
-            Parser JSON em C com AST própria, leitura via FILE*, suporte a números,
-            strings e mapas, com foco em robustez e clareza estrutural.
+            Implementação concorrente do problema dos filósofos usando threads e mutexes,
+            com monitorização para evitar race conditions e starvation.
           </p>
           <a href="https://github.com/">Ver no GitHub →</a>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Competências técnicas</h2>
+    <section class="reveal">
+      <h2>Competências</h2>
       <div class="skills">
         <span class="skill">C</span>
         <span class="skill">C++</span>
         <span class="skill">POSIX</span>
-        <span class="skill">Parsing</span>
         <span class="skill">Sistemas Unix</span>
+        <span class="skill">Parsing</span>
         <span class="skill">Pipes & Forks</span>
         <span class="skill">Threads</span>
         <span class="skill">Mutex</span>
         <span class="skill">Git</span>
         <span class="skill">Linux</span>
-        <span class="skill">42 Norminette</span>
+        <span class="skill">42 School</span>
       </div>
     </section>
   </main>
 
   <footer>
     <p>
-      © 2025 · Portfólio pessoal ·
+      © 2025 · Tiago Monteiro ·
       <a href="https://github.com/TiagoDev88">GitHub</a>
     </p>
   </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(r => observer.observe(r));
+  </script>
+
 </body>
 </html>
