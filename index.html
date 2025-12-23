@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Software Developer</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #020617, #020617 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    header span {
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      text-decoration: none;
+      border: 1px solid #1e293b;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      color: var(--text);
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .links a:hover {
+      background: var(--accent);
+      color: #020617;
+      border-color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      display: grid;
+      gap: 3.5rem;
+    }
+
+    section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+
+    .about p {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #020617, #020617);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      border: 1px solid #020617;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: var(--accent-2);
+      font-weight: 700;
+      align-self: flex-start;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Olá, eu sou <span>Software Developer</span></h1>
+    <p>
+      Desenvolvedor focado em sistemas, baixo nível e resolução de problemas complexos.
+      Trabalho principalmente com C e C++, mas com mentalidade transversal a qualquer tecnologia.
+    </p>
+    <div class="links">
+      <a href="https://github.com/">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Contacto</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about">
+      <h2>Sobre mim</h2>
+      <p>
+        Sou estudante da 42 School, onde desenvolvo projetos intensivos que exigem autonomia,
+        rigor técnico e atenção extrema ao detalhe. Tenho experiência na criação de software
+        de baixo nível, incluindo shells, parsers, sistemas concorrentes e estruturas de dados.
+        <br><br>
+        Gosto de compreender como as coisas funcionam internamente  desde o parsing de uma linha
+        de comandos até à sincronização de threads  e procuro escrever código limpo, previsível
+        e alinhado com o comportamento real dos sistemas Unix.
+        <br><br>
+        Todos os meus projetos estão disponíveis no GitHub, onde documento o processo, decisões
+        técnicas e desafios enfrentados.
+      </p>
+    </section>
+
+    <section>
+      <h2>Projetos em destaque</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Minishell</h3>
+          <p>
+            Shell inspirado no Bash com parsing completo, pipes, redirecionamentos, heredocs,
+            variáveis de ambiente, sinais e builtins implementados do zero.
+          </p>
+          <a href="https://github.com/">Ver no GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3>Philosophers</h3>
+          <p>
+            Implementação do problema dos filósofos utilizando threads e mutexes,
+            com sistema de monitorização para evitar starvation e race conditions.
+          </p>
+          <a href="https://github.com/">Ver no GitHub →</a>
+        </div>
+
+        <div class="card">
+          <h3>Argo — JSON Parser</h3>
+          <p>
+            Parser JSON em C com AST própria, leitura via FILE*, suporte a números,
+            strings e mapas, com foco em robustez e clareza estrutural.
+          </p>
+          <a href="https://github.com/">Ver no GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Competências técnicas</h2>
+      <div class="skills">
+        <span class="skill">C</span>
+        <span class="skill">C++</span>
+        <span class="skill">POSIX</span>
+        <span class="skill">Parsing</span>
+        <span class="skill">Sistemas Unix</span>
+        <span class="skill">Pipes & Forks</span>
+        <span class="skill">Threads</span>
+        <span class="skill">Mutex</span>
+        <span class="skill">Git</span>
+        <span class="skill">Linux</span>
+        <span class="skill">42 Norminette</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © 2025 · Portfólio pessoal ·
+      <a href="https://github.com/TiagoDev88">GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>
