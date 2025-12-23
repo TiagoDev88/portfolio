@@ -4,25 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tiago Monteiro | Software Developer | Portugal</title>
+  <title>Tiago Monteiro | Software Developer </title>
   <meta name="description" content="Portfólio profissional de Tiago Monteiro, Software Developer em Portugal, especializado em C, C++, sistemas Unix e projetos da 42 School.">
-  <meta name="keywords" content="Software Developer Portugal, C, C++, Unix, 42 School, minishell, cub3d, so_long, push_swap">
+  <meta name="keywords" content="Software Developer Portugal, C, C++, Rust, Unix, 42 School, minishell, cub3d, so_long, push_swap">
   <meta name="author" content="Tiago Monteiro">
 
   <style>
     :root {
-      --bg: #0f0c29;
       --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       --text: #f8f8f2;
       --muted: #c5c6c7;
-      --primary: #ff6ec7;
-      --secondary: #00ffab;
+      --btn-gradient: linear-gradient(135deg, #38bdf8, #22c55e);
       --accent: #6e5aff;
       --card: #1f1b2e;
       --border: #3a3a3a;
-      --gradient: linear-gradient(135deg, #ff6ec7, #00ffab, #6e5aff);
       --skill-bg: #29263c;
-      --skill-hover: #ff6ec7;
+      --skill-hover: #38bdf8;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,16 +31,11 @@
       line-height: 1.6;
     }
 
-    .lang-switch {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
+    .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 10; }
 
     .lang-switch button {
       background: transparent;
-      border: 2px solid var(--primary);
+      border: 2px solid #38bdf8;
       color: var(--text);
       padding: 0.5rem 1rem;
       margin-left: 0.3rem;
@@ -54,178 +46,58 @@
     }
 
     .lang-switch button.active, .lang-switch button:hover {
-      background: var(--gradient);
+      background: var(--btn-gradient);
       color: #0f0c29;
       border: none;
     }
 
-    header {
-      min-height: 95vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
+    header { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
 
-    .hero h1 {
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      font-weight: 900;
-      margin-bottom: 1rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-    }
+    .hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 1rem; background: var(--btn-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
 
-    .hero p {
-      max-width: 850px;
-      margin: 0 auto 2.5rem;
-      font-size: 1.2rem;
-      color: var(--muted);
-    }
+    .hero p { max-width: 850px; margin: 0 auto 2.5rem; font-size: 1.2rem; color: var(--muted); }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
+    .buttons { display: flex; justify-content: center; gap: 1rem; }
 
     .btn {
       padding: 0.8rem 2rem;
       border-radius: 50px;
       font-weight: 700;
       text-decoration: none;
-      color: var(--text);
-      background: transparent;
-      border: 2px solid var(--text);
+      color: #0f0c29;
+      background: var(--btn-gradient);
+      border: none;
       transition: all 0.4s ease;
     }
 
-    .btn.primary {
-      background: var(--gradient);
-      color: #0f0c29;
-      border: none;
-    }
+    .btn:hover { transform: translateY(-4px) scale(1.05); }
 
-    .btn:hover {
-      transform: translateY(-6px) scale(1.05);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-    }
+    main { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; display: grid; gap: 4rem; }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-      display: grid;
-      gap: 4rem;
-    }
+    section h2 { font-size: 2.2rem; margin-bottom: 1.5rem; position: relative; }
+    section h2::after { content: ""; width: 80px; height: 5px; background: var(--btn-gradient); display: block; margin-top: 0.5rem; border-radius: 999px; }
 
-    section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
 
-    section h2::after {
-      content: "";
-      width: 80px;
-      height: 5px;
-      background: var(--gradient);
-      display: block;
-      margin-top: 0.5rem;
-      border-radius: 999px;
-    }
+    .card { background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.6); transition: transform 0.5s ease, box-shadow 0.5s ease; display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid var(--border); }
+    .card:hover { transform: translateY(-15px); box-shadow: 0 35px 60px rgba(0,0,0,0.7); }
+    .card img { width: 100%; height: 180px; object-fit: cover; background: var(--card); transition: transform 0.5s ease; }
+    .card:hover img { transform: scale(1.05); }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-    }
+    .card-content { padding: 2rem; display: flex; flex-direction: column; gap: 0.8rem; width: 100%; align-items: bottom; }
+    .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; background: var(--btn-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card p { color: var(--muted); font-size: 1rem; }
+    .card a { padding: 0.6rem 1.4rem; border-radius: 50px; font-weight: 600; color: #0f0c29; background: var(--btn-gradient); text-decoration: none; transition: 0.3s ease; }
+    .card a:hover { background: #22c55e; transform: scale(1.05); }
 
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      border: 1px solid var(--border);
-    }
+    .skills { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+    .skill-box { background: var(--skill-bg); padding: 0.6rem 1.2rem; border-radius: 999px; font-weight: 600; color: var(--text); border: 1px solid var(--border); transition: all 0.3s ease; cursor: default; }
+    .skill-box:hover { background: var(--btn-gradient); color: #0f0c29; transform: scale(1.05); }
 
-    .card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 35px 60px rgba(0,0,0,0.7);
-    }
+    footer { text-align: center; padding: 4rem 1rem; color: var(--muted); }
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: var(--card);
-      transition: transform 0.5s ease;
-    }
-
-    .card:hover img {
-      transform: scale(1.05);
-    }
-
-    .card-content {
-      padding: 2rem;
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .skill-box {
-      background: var(--skill-bg);
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 600;
-      color: var(--text);
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-      cursor: default;
-    }
-
-    .skill-box:hover {
-      background: var(--skill-hover);
-      color: #0f0c29;
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 4rem 1rem;
-      color: var(--muted);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
     .en { display: none; }
   </style>
@@ -240,23 +112,20 @@
 <header>
   <div class="hero">
     <h1>Tiago Monteiro</h1>
-
-    <p class="pt">Software Developer com foco em C/C++, sistemas Unix e engenharia de software. Experiência prática em projetos exigentes da 42 School, com forte componente técnica e algorítmica.</p>
+    <p class="pt">Desenvolvedor Software com foco em C/C++, sistemas Unix e engenharia de software. Experiência prática em projetos exigentes da 42 School, com forte componente técnica e algorítmica.</p>
     <p class="en">Software Developer focused on C/C++, Unix systems and software engineering. Hands-on experience in demanding 42 School projects with strong technical and algorithmic depth.</p>
 
     <div class="buttons">
-      <a href="https://github.com/TiagoDev88" class="btn primary">GitHub</a>
-      <a href="https://www.linkedin.com/in/tiagodev88/" class="btn primary">LinkedIn</a>
+      <a href="https://github.com/TiagoDev88" class="btn">GitHub</a>
+      <a href="https://www.linkedin.com/in/tiagodev88/" class="btn">LinkedIn</a>
     </div>
   </div>
 </header>
 
 <main>
-
 <section class="reveal">
   <h2 class="pt">Sobre Mim</h2>
   <h2 class="en">About Me</h2>
-
   <p class="pt">Sou estudante da 42 School com foco em engenharia de software, sistemas operativos e lógica algorítmica. Desenvolvo código limpo, eficiente e documentação clara em C e C++. Procuro oportunidades profissionais em Portugal onde possa aplicar rigor técnico, colaborar com equipas experientes e continuar a aprender.</p>
   <p class="en">I am a 42 School student focused on software engineering, operating systems, and algorithmic logic. I write clean, efficient code with clear documentation in C and C++. I am seeking professional opportunities in Portugal to apply my technical skills and collaborate with experienced teams while continuing to learn.</p>
 </section>
@@ -264,77 +133,59 @@
 <section class="reveal">
   <h2 class="pt">Projetos em Destaque</h2>
   <h2 class="en">Featured Projects</h2>
-
   <div class="projects">
+
     <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/minishell" alt="minishell">
       <div class="card-content">
-        <h3>minishell</h3>
+        <a href="https://github.com/TiagoDev88/minishell">minishell</a>
         <p class="pt">Implementação completa de uma shell Unix com parsing, pipes, redirecionamentos, variáveis de ambiente e built-ins.</p>
         <p class="en">Complete Unix shell implementation with parsing, pipes, redirections, environment variables and built-ins.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/minishell">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
     <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/cub3d" alt="cub3d">
       <div class="card-content">
-        <h3>cub3d</h3>
+        <a href="https://github.com/TiagoDev88/cub3d">cub3d</a>  
         <p class="pt">Motor gráfico 3D com raycasting, gestão de mapas, eventos e matemática vetorial.</p>
         <p class="en">3D graphics engine using raycasting, map handling, events and vector math.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/cub3d">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
     <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/so_long" alt="so_long">
       <div class="card-content">
-        <h3>so_long</h3>
+        <a href="https://github.com/TiagoDev88/so_long">so_long</a>
         <p class="pt">Jogo 2D em C com lógica de jogo, colisões, renderização e gestão de eventos.</p>
         <p class="en">2D game in C with gameplay logic, collision handling, rendering and events.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/so_long">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
     <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/push_swap" alt="push_swap">
       <div class="card-content">
-        <h3>push_swap</h3>
+        <a href="https://github.com/TiagoDev88/push_swap">push_swap</a>
         <p class="pt">Projeto de algoritmos focado em ordenação otimizada, eficiência e análise de complexidade.</p>
         <p class="en">Algorithm project focused on optimized sorting, efficiency and complexity analysis.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/push_swap">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
-<div class="card">
+    <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/BoostFpsTiagoDev" alt="BoostFpsTiagoDev">
       <div class="card-content">
-        <h3>BoostFpsTiagoDev</h3>
+        <a href="https://github.com/TiagoDev88/BoostFpsTiagoDev">BoostFpsTiagoDev</a>
         <p class="pt">Ferramenta utilitária com scripting para otimização de performance ou batch tasks.</p>
         <p class="en">Utility scripting tool for performance optimization or batch tasks.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/BoostFpsTiagoDev">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
     <div class="card">
       <img src="https://opengraph.githubassets.com/1/TiagoDev88/scripthash" alt="scripthash">
       <div class="card-content">
-        <h3>scripthash (Rust)</h3>
+        <a href="https://github.com/TiagoDev88/scripthash">scripthash (Rust)</a>
         <p class="pt">Ferramenta em Rust para hashing de scripts ou processos técnicos.</p>
         <p class="en">Rust tool for hashing scripts or technical processes.</p>
-        <div class="buttons">
-        <a href="https://github.com/TiagoDev88/scripthash">Ver no GitHub →</a>
-        </div>
       </div>
     </div>
 
@@ -344,7 +195,6 @@
 <section class="reveal">
   <h2 class="pt">Competências</h2>
   <h2 class="en">Skills</h2>
-
   <div class="skills">
     <div class="skill-box">C</div>
     <div class="skill-box">C++</div>
@@ -367,9 +217,8 @@
 </section>
 
 </main>
-
 <footer>
-  <p>© 2025 · Tiago Monteiro · Software Developer · Portugal</p>
+  <p>© 2025 · Tiago Monteiro · Software Developer </p>
 </footer>
 
 <script>
