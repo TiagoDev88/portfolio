@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorOutline = document.querySelector('.cursor-outline');
     const cursorGlow = document.getElementById('cursor-glow');
 
+    // Detect touch device
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    // If it's a touch device, disable custom cursor functionality
+    if (isTouch) {
+        if (cursorDot) cursorDot.style.display = 'none';
+        if (cursorOutline) cursorOutline.style.display = 'none';
+        if (cursorGlow) cursorGlow.style.display = 'none';
+        document.body.classList.add('touch-device'); // Optional: Add a class to body for touch-specific styling
+        return; // Exit the cursor logic early
+    }
+
     let mouseX = -100;
     let mouseY = -100;
 
